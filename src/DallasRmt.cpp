@@ -101,6 +101,7 @@ bool DallasRmt::validFamily(const uint8_t *deviceAddress) {
     case DS1822MODEL:
     case DS1825MODEL:
     case DS28EA00MODEL:
+    case SHELLYMODEL:
       ret = true;
     default:
       ret = false;

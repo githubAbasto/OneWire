@@ -17,7 +17,7 @@ tags:
   - docs:drivers:Dallas RMT
 
 libs:
-  - location: https://github.com/githubAbasto/OneWire.git
+  - location: https://github.com/mongoose-os-libs/onewire-rmt
 
 build_vars:
 

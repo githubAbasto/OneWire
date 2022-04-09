@@ -179,7 +179,7 @@ void DallasRmt::writeScratchPad(const uint8_t *deviceAddress,
   _ow->write(scratchPad[LOW_ALARM_TEMP]);   // low alarm temp
 
   // DS1820 and DS18S20 have no configuration register
-  if (deviceAddress[0] != DS18S20MODEL) {
+  if (deviceAddress[0] != DS18S20MODEL) && (deviceAddress[0]!=SHELLYMODEL) {
     _ow->write(scratchPad[CONFIGURATION]);
   }
 
@@ -430,7 +430,7 @@ int16_t DallasRmt::calculateTemperature(const uint8_t *deviceAddress,
   http://myarduinotoy.blogspot.co.uk/2013/02/12bit-result-from-ds18s20.html
    */
 
-  if (deviceAddress[0] == DS18S20MODEL) {
+  if ((deviceAddress[0] == DS18S20MODEL)|| ( deviceAddress[0] == SHELLYMODEL)) {
     fpTemperature =
         ((fpTemperature & 0xfff0) << 3) - 16 +
         (((scratchPad[COUNT_PER_C] - scratchPad[COUNT_REMAIN]) << 7) /
